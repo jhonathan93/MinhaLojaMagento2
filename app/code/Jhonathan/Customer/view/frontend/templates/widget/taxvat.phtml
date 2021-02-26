@@ -1,0 +1,40 @@
+<?php
+/**
+ * @author Jhonathan da silva
+ * @link https://github.com/jhonathan93
+ * @link https://www.linkedin.com/in/jhonathan-silva-367541171/
+ * @package Jhonathan_Core
+ */
+
+use Jhonathan\customer\Block\Widget\Taxvat;
+
+/**
+ * @var Taxvat $block
+ */
+?>
+<div class="field taxvat<?= $block->isRequired() ? ' required' : ''; ?>">
+    <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('taxvat')) ?>">
+        <span>CPF</span>
+    </label>
+    <div class="control">
+        <input autocomplete="off" type="text" id="<?= $block->escapeHtmlAttr($block->getFieldId('taxvat')) ?>" name="<?= $block->escapeHtmlAttr($block->getFieldName('taxvat')) ?>" value="<?= $block->escapeHtmlAttr($block->getTaxvat()) ?>" title="<?= $block->escapeHtmlAttr($block->getStoreLabel('taxvat')) ?>" class="input-text <?= $block->escapeHtmlAttr($this->helper(\Magento\Customer\Helper\Address::class)->getAttributeValidationClass('taxvat')) ?>" <?= $block->isRequired() ? ' data-validate="{required:true}"' : '' ?>>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "init": {
+                "elements": {
+                    "0": "input#taxvat"
+                },
+                "mask": {
+                    "0": "<?= $block->escapeJs($block->ckeckIsLoggedIn()); ?>"
+                },
+                "validate": {
+                    "0": "true"
+                }
+            }
+        }
+    }
+</script>

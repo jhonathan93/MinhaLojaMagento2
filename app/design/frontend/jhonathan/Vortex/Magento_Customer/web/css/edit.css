@@ -1,0 +1,7 @@
+button.ui-datepicker-trigger.v-middle {
+    display: none !important;
+}
+
+input#dob {
+     width: 100%;
+}

@@ -1,0 +1,56 @@
+button.ui-datepicker-trigger.v-middle,
+div#ui-datepicker-div,
+div.field.country {
+    display: none !important;
+}
+
+input#dob,
+div.field.region {
+    width: 100% !important;
+}
+
+div.field.street div.control div.field.additional label {
+    display: contents !important;
+}
+
+fieldset {
+    margin-bottom: 0 !important;
+}
+
+fieldset.fieldset.create div.field.choice.newsletter {
+    margin-bottom: 40px !important;
+}
+
+div.field.field-name-firstname,
+div.field.telephone,
+fieldset.fieldset.create.account div.field.password,
+div.field.additional.field3,
+input#street_1 {
+    width: 49%;
+    float: left;
+}
+
+div.field.field-name-lastname,
+div.field.city,
+div.field.country,
+fieldset.fieldset.create.account div.field.confirmation,
+div.field.additional.field2,
+div.field.additional.field4 {
+    width: 49%;
+    float: right;
+}
+
+div.field.city,
+div.field.country,
+div.field.additional.field2,
+div.field.additional.field4 {
+    position: relative;
+    top: -30px;
+}
+
+div.field.additional.field3,
+div.field.additional.field4,
+div.field.telephone,
+div.field.city{
+    margin-bottom: 10px;
+}

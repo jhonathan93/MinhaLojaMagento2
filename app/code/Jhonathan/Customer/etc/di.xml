@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Jhonathan\Customer\Api\SearchAddressInterface" type="Jhonathan\Customer\Controller\Frontend\ViaCep" />
+    <preference for="Jhonathan\Customer\Api\DocumentAuthenticationInterface" type="Jhonathan\Customer\Controller\Frontend\Document" />
+</config>

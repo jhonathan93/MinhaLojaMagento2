@@ -1,0 +1,46 @@
+<?php
+/**
+ * @author Jhonathan da silva
+ * @link https://github.com/jhonathan93
+ * @link https://www.linkedin.com/in/jhonathan-silva-367541171/
+ * @package Jhonathan_Core
+ */
+
+use Jhonathan\Customer\Block\Widget\Dob;
+
+/**
+ * @var Dob $block
+ */
+
+$fieldCssClass = 'field date field-' . $block->getHtmlId();
+$fieldCssClass .= $block->isRequired() ? ' required' : '';
+?>
+<div class="<?= $block->escapeHtmlAttr($fieldCssClass) ?>">
+    <label class="label" for="<?= /* @noEscape */ $block->getHtmlId() ?>"><span><?= $block->escapeHtml($block->getStoreLabel('dob')) ?></span></label>
+    <div class="control customer-dob">
+        <?= $block->getFieldHtml() ?>
+        <?php if ($_message = $block->getAdditionalDescription()) : ?>
+            <div class="note"><?= $block->escapeHtml($_message) ?></div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "init": {
+                "elements" : {
+                    "0": "input#dob"
+                },
+
+                "mask" : {
+                    "0": "00/00/0000"
+                },
+
+                "validate": {
+                    "0" : "true"
+                }
+            }
+        }
+    }
+ </script>

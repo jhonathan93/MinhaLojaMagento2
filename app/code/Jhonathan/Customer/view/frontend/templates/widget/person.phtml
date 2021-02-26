@@ -1,0 +1,37 @@
+<?php
+/**
+ * @author Jhonathan da silva
+ * @link https://github.com/jhonathan93
+ * @link https://www.linkedin.com/in/jhonathan-silva-367541171/
+ * @package Jhonathan_Core
+ */
+
+use Jhonathan\Customer\Block\Widget\Person;
+
+/**
+ * @var Person $block
+ */
+?>
+
+<div class="field field-name-person required" style="margin-top: 4%;">
+    <label class="label" for="person_type">
+        <span><?= $block->escapeHtml(__('Tipo de pessoa')) ?></span>
+    </label>
+    <div class="control">
+        <select autocomplete="off" id="person_type" name="tipopessoa">
+            <option value="0"><?= $block->escapeHtml(__('Pessoa Física')) ?></option>
+            <option value="1"><?= $block->escapeHtml(__('Pessoa Jurídica')) ?></option>
+        </select>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "person": {
+                "element": "select#person_type",
+                "taxvat": "input#taxvat"
+            }
+        }
+    }
+</script>

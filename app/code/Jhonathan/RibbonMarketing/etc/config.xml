@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <jhonathan_ribbonmarketing>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <settings>
+                <title_active>0</title_active>
+                <ribbon_title/>
+            </settings>
+        </jhonathan_ribbonmarketing>
+    </default>
+</config>
