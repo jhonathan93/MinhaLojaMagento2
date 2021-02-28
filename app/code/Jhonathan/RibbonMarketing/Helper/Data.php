@@ -8,6 +8,7 @@
 
 namespace Jhonathan\RibbonMarketing\Helper;
 
+use Jhonathan\Core\Helper\AbstractData;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\ObjectManagerInterface;
@@ -18,6 +19,12 @@ use Magento\Store\Model\StoreManagerInterface;
  * @package Jhonathan\RibbonMarketing\Helper
  */
 class Data extends AbstractData {
+
+    const CONFIG_MODULE_PATH = 'jhonathan_ribbonmarketing';
+
+    const GROUPGENERAL = 'general';
+
+    const GROUPSETTINGS = 'settings';
 
     /**
      * @var StoreManagerInterface
@@ -31,20 +38,40 @@ class Data extends AbstractData {
      * @param StoreManagerInterface $storeManager
      */
     public function __construct(Context $context, ObjectManagerInterface $objectManager, StoreManagerInterface $storeManager) {
-        parent::__construct($context, $objectManager);
+        parent::__construct($context, static::CONFIG_MODULE_PATH, $objectManager);
         $this->_storeManager = $storeManager;
     }
 
     /**
+     * @param string $code
+     * @param string $group
      * @param null $storeId
      * @return array|false|mixed
      */
-    public function isEnabled($storeId = null) {
+    public function isEnabled(string $code, string $group, $storeId = null) {
+        $storeId = $this->getStoreId($storeId);
+        return parent::isEnabled($code, $group, $storeId);
+    }
+
+    /**
+     * @param string $code
+     * @param null $storeId
+     * @return array|mixed
+     */
+    public function getContent(string $code, $storeId = null) {
+        $storeId = $this->getStoreId($storeId);
+        return parent::Content($code, static::GROUPSETTINGS, $storeId);
+    }
+
+    /**
+     * @param $storeId
+     * @return false|int
+     */
+    public function getStoreId($storeId) {
         try {
             if (empty($storeId)) {
-                $storeId = $this->_storeManager->getStore()->getWebsiteId();
+                return $this->_storeManager->getStore()->getWebsiteId();
             }
-            return parent::isEnabled($storeId);
         } catch (NoSuchEntityException $e) {
             return false;
         }

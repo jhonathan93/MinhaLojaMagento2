@@ -21,7 +21,7 @@
             <group id="settings" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Settings</label>
                 <field id="title_active" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Enable</label>
+                    <label>Enable Title</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[Show title]]></comment>
                 </field>
@@ -33,15 +33,23 @@
                         <field id="*/settings/title_active">1</field>
                     </depends>
                 </field>
-                <field id="ribbon_color" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="content_active" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Content</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Show content]]></comment>
+                </field>
+                <field id="ribbon_content" translate="label comment" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Content</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Banner contents]]></comment>
+                    <depends>
+                        <field id="*/settings/content_active">1</field>
+                    </depends>
+                </field>
+                <field id="ribbon_color" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Background Color</label>
                     <frontend_model>Jhonathan\Core\Block\Color</frontend_model>
                     <comment><![CDATA[Banner Background color]]></comment>
-                </field>
-                <field id="ribbon_contents" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Contents</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <comment><![CDATA[Banner contents]]></comment>
                 </field>
             </group>
         </section>

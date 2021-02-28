@@ -9,6 +9,8 @@
             <settings>
                 <title_active>0</title_active>
                 <ribbon_title/>
+                <content_active>0</content_active>
+                <ribbon_content/>
             </settings>
         </jhonathan_ribbonmarketing>
     </default>

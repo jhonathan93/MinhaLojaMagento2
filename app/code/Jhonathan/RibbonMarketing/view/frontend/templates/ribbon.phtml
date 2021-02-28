@@ -11,8 +11,7 @@
 
 <?php if ($block->isEnable()): ?>
     <div class="rm-content-main">
-        <h1 class="rm-title">
-            <span><?= $block->getTitle(); ?></span>
-        </h1>
+        <?= $block->getTitle(); ?>
+        <?= $block->getContent(); ?>
     </div>
 <?php endif; ?>

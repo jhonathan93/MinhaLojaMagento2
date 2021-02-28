@@ -6,7 +6,7 @@
  * @package Jhonathan_Core
  */
 
-namespace Jhonathan\RibbonMarketing\Helper;
+namespace Jhonathan\Core\Helper;
 
 use Magento\Backend\App\Config;
 use Magento\Backend\App\ConfigInterface;
@@ -20,8 +20,10 @@ use Magento\Store\Model\ScopeInterface;
  * @package Jhonathan\RibbonMarketing\Helper
  */
 class AbstractData extends AbstractHelper {
-
-    const CONFIG_MODULE_PATH = 'jhonathan_ribbonmarketing';
+    /**
+     * @var string
+     */
+    protected $_module;
 
     /**
      * @var Config
@@ -36,27 +38,33 @@ class AbstractData extends AbstractHelper {
     /**
      * AbstractData constructor.
      * @param Context $context
+     * @param string $module
      * @param ObjectManagerInterface $objectManager
      */
-    public function __construct(Context $context, ObjectManagerInterface $objectManager) {
+    public function __construct(Context $context, string $module, ObjectManagerInterface $objectManager) {
         parent::__construct($context);
         $this->objectManager = $objectManager;
+        $this->_module = $module;
     }
 
     /**
+     * @param string $code
+     * @param string $group
      * @param null $storeId
      * @return array|mixed
      */
-    public function isEnabled($storeId = null) {
-        return $this->getConfigGeneral('enabled', 'general', $storeId);
+    public function isEnabled(string $code, string $group, $storeId = null) {
+        return $this->getConfigGeneral($code, $group, $storeId);
     }
 
     /**
+     * @param string $code
+     * @param string $group
      * @param null $storeId
      * @return array|mixed
      */
-    public function title($storeId = null) {
-        return $this->getConfigGeneral('ribbon_title', 'settings', $storeId);
+    public function content(string $code, string $group, $storeId = null) {
+        return $this->getConfigGeneral($code, $group, $storeId);
     }
 
     /**
@@ -68,7 +76,7 @@ class AbstractData extends AbstractHelper {
     public function getConfigGeneral(string $code, string $group, $storeId = null) {
         $code = '/' . $code;
         $group = '/' . $group;
-        return $this->getConfigValue(static::CONFIG_MODULE_PATH . $group . $code, $storeId);
+        return $this->getConfigValue($this->_module . $group . $code, $storeId);
     }
 
     /**

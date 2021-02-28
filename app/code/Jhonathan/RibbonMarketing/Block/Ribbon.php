@@ -33,13 +33,31 @@ class Ribbon extends Template {
      * @return bool
      */
     public function isEnable(): bool {
-        if ($this->_HelperData->isEnabled()) {
+        if ($this->_HelperData->isEnabled('enabled', $this->_HelperData::GROUPGENERAL)) {
             return true;
         }
         return false;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle(): string {
-        return $this->_HelperData->title();
+        if ($this->_HelperData->isEnabled('title_active', $this->_HelperData::GROUPSETTINGS)) {
+            return "<div class='rm-title'><h1><span>" .$this->_HelperData->getContent('ribbon_title'). "</span></h1></div>";
+        }
+
+        return '';
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent(): string {
+        if ($this->_HelperData->isEnabled('content_active', $this->_HelperData::GROUPSETTINGS)) {
+            return "<div>".$this->_HelperData->getContent('ribbon_content')."<div/>";
+        }
+
+        return '';
     }
 }
