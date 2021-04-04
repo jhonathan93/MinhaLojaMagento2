@@ -75,5 +75,7 @@ class Data extends AbstractData {
         } catch (NoSuchEntityException $e) {
             return false;
         }
+
+        return false;
     }
 }

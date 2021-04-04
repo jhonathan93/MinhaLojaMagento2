@@ -32,7 +32,9 @@
         "magento/module-wishlist-sample-data": "100.3.*",
         "magento/product-community-edition": "2.3.4",
         "magento/sample-data-media": "100.3.*",
-      "ext-json": "*"
+        "magento/inventory-composer-metapackage": "1.1.4.*",
+      "ext-json": "*",
+      "ext-curl": "*"
     },
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.2.0",
